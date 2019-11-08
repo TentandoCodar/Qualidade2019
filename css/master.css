@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  background-color: #EDF3E4;
+  width: 100%;
+}
+
+footer{
+  overflow: hidden;
+  padding: 5px;
+  font-size: 15px;
+  color: rgba(237, 243, 228, 1);
+  background-color: #1a1a1a;
+  /* margin-top: 40px; */
+  height: fit-content;
+  width: 100%;
+  bottom: 0px;
+  z-index: 200;
+  margin: 0px;
+}
+
+h1{
+  margin: 10px auto 20px auto;
+}
+
+button{
+  border-radius: 0px;
+}
+
+
+
+/* ----------------- START HEADER CSS ----------------- */
+/*
+header {
+    height:800px;
+
+}
+
+#header-sroll {
+    position:fixed;
+    height: 100px;
+    background:#ccc;
+    left:0;
+    top:0;
+    float:left;
+    width:100%;
+    -ms-transition:     all 0.3s ease-out;
+    -moz-transition:    all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition:      all 0.3s ease-out;
+    transition:         all 0.3s ease-out;
+}
+#header-sroll h1 {
+    font-size: 30px;
+    font-family: Arial;
+    text-align: center;
+    line-height: 50px;
+     -ms-transition:    all 0.3s ease-out;
+    -moz-transition:    all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition:      all 0.3s ease-out;
+    transition:         all 0.3s ease-out;
+}
+#header-sroll.small {
+    height: 70px;
+    line-height: 35px;
+}
+#header-sroll.small h1{
+    height: 70px;
+    line-height: 35px;
+    font-size: 25px;
+} */
+
+header{
+  width: 100%;
+  position: fixed;
+  z-index: 2000;
+}
+
+
+
+
+
+/* ----------------- START HEADER CSS ----------------- */
+
+
+main{
+  width: 100%;
+  padding-top: 70px;
+}
+
+
+.index-section{
+  /* height: 400px; */
+  width: 100%;
+  padding: 20px;
+}
+
+.grid-bg{
+  /* background-image: url("../imgs/bg.png"); */
+  background-size: 30% auto;
+  background-repeat: repeat;
+  /* background-attachment: fixed; */
+  background-color: #EDF3E4;
+}
+
+.index-content{
+  color: #111;
+  font-size: 20px;
+  padding-top: 70px;
+}
+
+.verde{
+  background-color: #173c61;
+  color: white;
+}
+
+.banner{
+  margin-top: 60px;
+  width: 100%;
+}
+
+
+
+
+.card{
+  background-color: EDF3E4;
+  margin-bottom: 30px;
+  border-radius: 0px;
+  width: 80%;
+}
+
+.flex-column{
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 90px;
+  padding-top: 10px;
+  padding-left: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #EDF3E4;
+  position: fixed;
+  height: 85%;
+}
+
+.active-pink .fa, .active-pink-2 .fa {
+color: #f48fb1;
+}
+
+
+/* .flex-column>.nav-item{
+  padding: auto;
+  margin-top: 10px;
+  font-size: 10px
+} */
+
+.nav-item>h3{
+  font-size: 12px;
+  color: #777;
+  font-weight: bold;
+  /* margin-bottom:?S; */
+}
+
+.form-inline{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.card-img-top{
+  border-radius: 0px;
+}
+
+.form-control{
+  height: 25px;
+  font-size: 12px;
+}
+
+.sub{
+  padding-left: 10px;
+}
+
+.input-group-text{
+  border: 1px 1px 1px 0px;
+  background-color: #EDF3E4;
+  height: 25px;
+  width: 25px;
+  padding-left: 6px;
+  font-size: 12px;
+}
+
+.card-body{
+  text-align: left;
+  font-size: 15px;
+}
+
+#baixar{
+  float: right;
+  height: 40px;
+  font-size: 15px;
+  padding: auto 10px auto 10px;
+}
+.container-checkbox {
+  display: block;
+  position: relative;
+  padding: 2px 5px 2px 25px;
+  /* margin-top: 5px; */
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Text + shade in - StackOverflow*/
+.wrap{
+  /* background-image: url(https://placehold.it/450x400/fa0); */
+}
+.hover-text {
+  position: absolute;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.8s;
+  font-size: 36px;
+  color: #fff;
+  padding-top: 50%;
+}
+.hover-text:hover {
+  opacity: 1;
+}
+/* Text shade in*/
+
+.card-body{
+  background-color: #EDF3E4;
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  /* border-radius: 2px; */
+  position: absolute;
+  /* top: 0; */
+  left: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a blue background */
+.aventura input:checked ~ .checkmark {
+  background-color: #E1B800;
+}
+.epico input:checked ~ .checkmark {
+  background-color: #B4EE0A;
+}
+.romance input:checked ~ .checkmark {
+  background-color: #F50028;
+}
+.poesia input:checked ~ .checkmark {
+  background-color: #00C5EF;
+}
+.tragedia input:checked ~ .checkmark {
+  background-color: #5C03A6;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+  background-image: url(imgs/capalivro6.png);
+  background-size: 15px;
+  /* left: 9px;
+  padding-top: auto;
+  padding-bottom: auto;
+  width: 2px;
+  height: 5px;
+  border: solid #EDF3E4;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); */
+}
+
+.acervo{
+  background-image: url("../imgs/bg.png");
+  background-size: 30% auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #EDF3E4;
+}
+
+.card-list{
+  margin-top: 60px;
+  margin-right: 0px;
+  margin-left: 20%;
+}
+
+.artigos{
+  background-image: url("../imgs/bg_artigos.jpg");
+  background-size: cover;
+}
+
+.contato{
+  background-image: url("../imgs/bg_contato.jpg");
+  background-color: #EDF3E4;
+  background-size:cover;
+}
+
+.nos{
+  background-image: url("../imgs/bg_nos.jpg");
+  background-color: #EDF3E4;
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+.bottom{
+  bottom: 0px;
+  left: 0px;
+  }
+
+.fixed{
+  position: fixed;
+}
+
+
+/* ----------------- START FORM CSS ----------------- */
+
+#myBtn {
+  height: 50px;
+  /* display: none; /* Hidden by default */
+  /* position: fixed; /* Fixed/sticky position */
+  /* bottom: 20px;/* Place the button at the bottom of the page */
+  /* right: 30px; /* Place the button 30px from the right */
+  /* z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgba(237, 243, 228, 0); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: rgba(237, 243, 228, 0); /* Add a dark-grey background on hover */
+}
+
+
+
+
+
+
+#form-title{
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0px  20px;
+  /* border: dashed rgba(237, 243, 228, 1); */
+  /* border-width: 0 1px 0px 1px; */
+}
+
+
+.login-form{
+  /* border: dashed rgba(237, 243, 228, 1); */
+  /* border-width: 1px; */
+  width: 600px;
+  margin: 20px auto auto 20px;
+  padding: 20px;
+  background-color: rgba(237, 243, 228, 1);
+  height: 205px;
+
+}
+
+
+.contato-form{
+  border: dashed rgba(237, 243, 228, 1);
+  border-width: 1px;
+  width: 600px;
+  margin: 20px 0px auto 20px;
+  padding: 20PX;
+}
+
+.right-pos{
+  margin-top: 10px;
+  float: right;
+}
+
+
+.form-input-1{
+  margin-bottom:
+  /* border: dashed rgba(237, 243, 228, 1); */
+  /* border-width: 0PX 1px 0PX 0PX; */
+  /* height: 170px; */
+  color: rgba(237, 243, 228, 1);
+  /* margin-left: 20px; */
+
+  /* padding: 20px; */
+  background-color: none;
+  /* background-color: rgba(237, 243, 228, 1); */
+  /* width: 40% */
+}
+
+.form-input-2{
+  background-color: none;
+  /* border: dashed rgba(237, 243, 228, 1); */
+  /* border-width: 1px; */
+  height: 170px;
+  /* margin-left: 20px; */
+  color: rgba(237, 243, 228, 1);
+  /* padding: 20px; */
+  /* background-color: #EDF3E4; */
+}
+
+.contato-form>.form-input>input{
+  width: 170px;
+  margin: 10px auto 10px 10px;
+  /* background-color:EDF3E4; */
+  border: none;
+  border-bottom:2px solid #173c61;
+}
+
+.contato-form>.form-input>select{
+  width: 170px;
+  margin: 10px auto 10px 10px;
+  /* background-color:EDF3E4; */
+  border: none;
+  border-bottom:2px solid #173c61;
+}
+
+.contato-form>.form-input>label{
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100px;
+}
+.contato-form>.form-input>button{
+  margin-bottom: 30px;
+  float: right;
+  font-size: 15px;
+}
+.contato-form>.form-input>.btn-light{
+  margin-bottom: 30px;
+}
+
+.contato-form>.form-input-2>textarea{
+  resize: none;
+  height: 100px;
+  width: 100px;
+  margin: 10px auto 10px 30px;
+  /* background-color:EDF3E4; */
+  border: none;
+  border-bottom:2px solid #173c61;
+}
+
+
+
+
+
+
+
+
+.login-form>.form-input>input{
+  width: 170px;
+  margin: 10px auto 10px 10px;
+  /* background-color:EDF3E4; */
+  border: none;
+  border-bottom:2px solid #173c61;
+}
+
+.login-form>.form-input>select{
+  width: 170px;
+  margin: 10px auto 10px 10px;
+  /* background-color:EDF3E4; */
+  border: none;
+  border-bottom:2px solid #173c61;
+}
+
+.login-form>.form-input>label{
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+  width: 100px;
+}
+.login-form>.form-input>button{
+  margin-bottom: 30px;
+  float: right;
+  font-size: 15px;
+}
+.login-form>.form-input>.btn-light{
+  margin-bottom: 30px;
+}
+
+.login-form>.form-input-2>textarea{
+  resize: none;
+  height: 100px;
+  width: 100px;
+  margin: 10px auto 10px 30px;
+  /* background-color:EDF3E4; */
+  border: none;
+  border-bottom:2px solid #173c61;
+}
+/* ----------------- END FORM CSS ----------------- */
+
+
+.footer-text{
+  margin: 20px;
+  width: fill;
+}
+
+
+
+.login{
+  width: 350px;
+  margin: 150px auto auto auto;
+}
+
+
+#sticky-footer {
+  bottom: 0px;
+  left: 0px;
+  flex-shrink: none;
+}
+
+.btn-pesquisa{
+  float:right;
+  margin-top: 10px;
+  text-align: center;
+  width: 75px;
+  height: 40px;
+}
+
+.nos-texto{
+  margin-left: 40px;
+  width: 700px;
+  padding: 20px;
+  background-color: #EDF3E4;
+}
+
+.nos-img{
+  margin-left: 40px;
+  width: 700px;
+  height: 500px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #EDF3E4;
+}
+
+.nos-cmt{
+  margin-top: 20px;
+  margin-left: 40px;
+  width: 700px;
+  height: 180px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #EDF3E4;
+}
+
+
+
+
+ /* ----------------- START CARD-LIST CSS ----------------- */
+
+.custom-card-title
+{
+  width: 100%;
+  height: 70px;
+  font-family: 'Muli', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color:      #434343;
+}
+
+.custom-card-image-frame
+{
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  font-family: 'Muli', sans-serif;
+  font-size: 13px;
+  text-align: center;
+  color:      #434343;
+  background-color:      #FFFFFF;
+  border: 1px solid      #F3F3F3;
+  overflow: hidden;
+}
+
+.custom-card-text-frame
+{
+  width: 100%;
+  height: fill;
+  font-family: 'Muli', sans-serif;
+  font-size: 13px;
+  text-align: center;
+  color:      #434343;
+}
+
+.custom-card-paragraph
+{
+  width: 100%;
+  height: 65px;
+  font-family: 'Muli', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  line-height: 22px;
+  color:      #B2B2B2;
+}
+
+.custom-card-opt-title
+{
+  width: 97px;
+  height: 18px;
+  font-family: 'Muli', sans-serif;
+  font-size: 13px;
+  color:      #666666;
+}
+
+.custom-card-container
+{
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 350px;
+  height: 500px;
+  background-color:      #EDF3E4;
+
+}
+
+.custom-card-container:hover{
+  background-color: #deddd9
+}
+
+.custom-column {
+  float: left;
+  width: 300px;
+  padding: 0 10px;
+}
+
+.custom-row {
+  margin: 0;
+}
+
+.custom-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 300px) {
+  .custom-column {
+    width: 300px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+  }
+}
+
+
+ /* ----------------- END CARD-LIST CSS ----------------- */
