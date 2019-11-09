@@ -52,7 +52,7 @@
 
         private function verifyIfUserExists($email,$user,$phone,$pass) {
             $db = $this -> pdo;
-            $prepare = $db -> prepare("SELECT * from users where (email = ? or user = ? or pass = ?) and pass = ?");
+            $prepare = $db -> prepare("SELECT * from users where (email = ? or user = ? or phone = ?) and pass = ?");
             $values = array($email, $user, $phone,$pass);
             $return = $prepare -> execute($values);
             
@@ -80,30 +80,58 @@
             }
         }
 
-        public function index() {
+        public function index($id = "") {
             $db = $this -> pdo;
 
-            $prepare = $db -> prepare("SELECT * from users where admin=false");
-            $prepare -> execute();
-            return $prepare -> fetchAll();
+            $prepare = $db -> prepare('SELECT * from users where id = ?');
+            $prepare -> execute(array($id));
+            return $prepare -> fetch();
         }
 
-        public function update($email,$user, $pass, $id) {
+        public function update($name,$email, $phone,$user, $pass, $new_pass = "", $id) {
             $db = $this -> pdo;
-            $prepare = $db -> prepare('SELECT * from users where user = ? and id <> ?');
-            $array = array($user,$id);
+            $passwordIsCorrect = $this -> verifyPassword($id,$pass);
+
+            if($passwordIsCorrect === 0) {
+                return 'Incorrect password';
+            }
+
+            
+            
+            $prepare = $db -> prepare('SELECT * from users where (user = ? or phone = ? or email = ?) and id <> ?');
+            $array = array($user, $phone, $email,$id);
             $prepare -> execute($array);
             if($prepare -> rowCount() > 0) {
                 return false;
             }
-            $prepare2 = $db -> prepare("UPDATE users set email=?,user = ?,pass=? where id = ?");
-            $array2 = array($email,$user, $pass,$id);
+            
+            $prepare2 = $db -> prepare("UPDATE users set name=?,email=?,user = ?,pass=? where id = ?");
+            if($new_pass !== '') {
+                echo "new pass";
+                $array2 = array($name,$email,$user, $new_pass,$id);
+            }
+            else {
+                $array2 = array($name,$email,$user, $pass,$id);
+            }
+            
             $prepare2 -> execute($array2);
             return true;
         }
 
+        private function verifyPassword($id,$pass) {
+            $db = $this -> pdo;
+            $prepare = $db -> prepare('SELECT * from users where id=? and pass = ?');
+            $values = array($id,$pass);
+            $prepare -> execute($values);
+            return $prepare -> rowCount();
+        }
+
         public function delete($id) {
             $db = $this -> pdo;
+            
+            $prepare = $db -> prepare('DELETE from books_per_users where user_id=?');
+            $values = array($id);
+            $return = $prepare -> execute($values);
             $prepare = $db -> prepare('DELETE from users where id=?');
             $values = array($id);
             $return = $prepare -> execute($values);

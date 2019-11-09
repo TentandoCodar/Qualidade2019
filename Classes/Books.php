@@ -7,9 +7,9 @@
             $this -> pdo = new PDO(DBCON, DBUSER,DBPASS);
         }
         
-        public function create($name,$color, $description) {
+        public function create($name,$color, $description, $tags) {
             $db = $this -> pdo;
-            $prepare = $db -> prepare('INSERT INTO books set name=?, color=?, description=?');
+            $prepare = $db -> prepare('INSERT INTO books set name=?, color=?, description=?, tags=?');
             $values = array($name, $color, $description);
             $return = $prepare -> execute($values);
 
@@ -36,18 +36,30 @@
             return $return;
         }
 
-        public function index($query = "") {
+        public function index($params = "") {
             $db = $this -> pdo;
-            if(!$query) {
+            if(!$params) {
                 $prepare = $db -> prepare('SELECT * from books');
-
                 $prepare -> execute();
-
-                if($prepare -> rowCount() > 0) {
-                    return $prepare -> fetchAll();
+                $count = $prepare -> rowCount();
+                if($count > 0) {
+                    return array('data' => $prepare -> fetchAll(), 'count' => $count);
                 }
                 else {
                     return false;
+                }
+            }
+            else {
+                $query = "SELECT * from books where ";
+                $prepare = $db -> prepare($query);
+                $cond = 0;
+                foreach($params as $param) {
+                    if($cond = 0) {
+                        $query .= 'tags like %'.$param.'%';
+                    }
+                    else {
+                        $query .= ' or tags like %'.$param.'%';
+                    }
                 }
             }
         }

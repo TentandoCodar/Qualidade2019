@@ -16,7 +16,8 @@
 
   $return = $books -> index();
 
-
+  $data = $return['data'];
+  $count = $return['count'];
 
 
 ?>
@@ -142,19 +143,27 @@
       <main class="card-list">
           <center>
             <ol class="custom-row">
-              <li class="custom-card-container custom-column">
-                    <div class="custom-card-image-frame">
-                        <img width="100%" src="imgs/'.$exibe['img'].'" alt="...">
-                    </div>
-                    <div class="custom-card-text-frame">
-                      <div class="custom-card-title">'.$exibe['name'].'</div>
-                      <div class="custom-card-paragraph"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </div>
-                      <div class="custom-card-opt-title">   <a target="_blank" href="livros/'.$exibe['pdf'].'" tabindex="-1">Baixar</a> </div>
-                    </div>
-                </li>
+              <?php 
+                if($count > 0) {
+                  foreach($data as $value) {
+                    echo '<li class="custom-card-container custom-column">
+                      <div class="custom-card-image-frame">
+                          <img width="100%" src="imgs/'.'" alt="...">
+                      </div>
+                      <div class="custom-card-text-frame">
+                        <div class="custom-card-title">'.$value['name'].'</div>
+                        <div class="custom-card-paragraph"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </div>
+                        <div class="custom-card-opt-title">   <a target="_blank" href="livros/'.'" tabindex="-1">Baixar</a> </div>
+                      </div>
+                    </li>';
+                  }
+                }
+              
+              ?>
 
             </ol>
-<br>
+          </center>
+          <br>
 
         </main>
 </div>

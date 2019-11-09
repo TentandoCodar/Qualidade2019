@@ -9,12 +9,12 @@
         $return = $user -> login($data,md5($password));
         if($return['count'] == 1) {
             if($return['admin'] == false) {
-                $_SESSION['user'] = 1;
+                $_SESSION['user'] = $return['id'];
                 $_SESSION['admin'] = $return['id'];
                 header('Location: acervo.php');
             }
             else {
-                $_SESSION['user'] = 1;
+                $_SESSION['user'] = $return['id'];
                 header('Location: Admin.php');
             }
         }
