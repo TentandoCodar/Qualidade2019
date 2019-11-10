@@ -17,7 +17,7 @@
   $return = $books -> index();
 
   $data = $return['data'];
-  $count = $return['count'];
+  $numRows = $return['count'];
 
 
 ?>
@@ -144,7 +144,7 @@
           <center>
             <ol class="custom-row">
               <?php 
-                if($count > 0) {
+                if($numRows > 0) {
                   foreach($data as $value) {
                     echo '<li class="custom-card-container custom-column">
                       <div class="custom-card-image-frame">
@@ -153,7 +153,7 @@
                       <div class="custom-card-text-frame">
                         <div class="custom-card-title">'.$value['name'].'</div>
                         <div class="custom-card-paragraph"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </div>
-                        <div class="custom-card-opt-title">   <a target="_blank" href="livros/'.'" tabindex="-1">Baixar</a> </div>
+                        <div class="custom-card-opt-title">   <a target="_blank" href="Download.php?book='.$value['pdf_path'].'&id='.$value['id'].'" tabindex="-1">Baixar</a> </div>
                       </div>
                     </li>';
                   }
@@ -168,7 +168,7 @@
         </main>
 </div>
 <?php
-$numRows = 1;
+
       if($numRows < 4){
         echo '<div style="height: 500px;"></div>';
       };

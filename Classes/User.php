@@ -148,6 +148,23 @@
 
             return $return;
         }
+
+        public function hasMany($table = "") {
+            $db = $this -> pdo;
+
+            $prepare = $db -> prepare("SELECT * from users inner join ? on ?.user_id = users.id where users.id = ?");
+            $values = array($table,$table);
+            $prepare -> execute($values);
+
+            if($prepare -> rowCount() > 0) {
+                $return = $prepare -> fetchAll();
+                return $return;
+            }
+
+            else {
+                return "Data is empty";
+            }
+        }
     }
 
 
