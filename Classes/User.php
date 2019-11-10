@@ -32,14 +32,14 @@
             try {
                 
                 $db = $this -> pdo;
-                $userExists = $this -> verifyIfUserExists($email, $user, $phone, $pass);
+                $userExists = $this -> verifyIfUserExists($email, $user, $phone);
 
                 if($userExists === true) {
                     return false;
                 }
                 
                 
-                $prepare = $db -> prepare("INSERT into users set email=?, user=?, phone=?, pass=?, name=?");
+                $prepare = $db -> prepare("INSERT into users set email=?, user=?, phone=?, pass=?, name=?, admin=true");
                 $values = array($email,$user,$phone,$pass,$name);
                 $return = $prepare -> execute($values);
                 
@@ -50,10 +50,10 @@
             }
         }
 
-        private function verifyIfUserExists($email,$user,$phone,$pass) {
+        private function verifyIfUserExists($email,$user,$phone) {
             $db = $this -> pdo;
-            $prepare = $db -> prepare("SELECT * from users where (email = ? or user = ? or phone = ?) and pass = ?");
-            $values = array($email, $user, $phone,$pass);
+            $prepare = $db -> prepare("SELECT * from users where email = ? or user = ? or phone = ?");
+            $values = array($email, $user, $phone);
             $return = $prepare -> execute($values);
             
             if($prepare -> rowCount() > 0) {
@@ -124,6 +124,16 @@
             $values = array($id,$pass);
             $prepare -> execute($values);
             return $prepare -> rowCount();
+        }
+
+        public function adminReceiveUsers() {
+            $db = $this -> pdo;
+
+            $prepare = $db -> prepare("SELECT * FROM users where admin=false");
+
+            $prepare -> execute();
+
+            return $prepare -> fetchAll();
         }
 
         public function delete($id) {

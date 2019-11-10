@@ -8,14 +8,14 @@
         $user = new User();
         $return = $user -> login($data,md5($password));
         if($return['count'] == 1) {
-            if($return['admin'] == false) {
+            if($return['admin'] == true) {
                 $_SESSION['user'] = $return['id'];
                 $_SESSION['admin'] = $return['id'];
                 header('Location: acervo.php');
             }
             else {
                 $_SESSION['user'] = $return['id'];
-                header('Location: Admin.php');
+                header('Location: acervo.php');
             }
         }
         else {

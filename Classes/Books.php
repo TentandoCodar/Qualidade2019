@@ -7,13 +7,40 @@
             $this -> pdo = new PDO(DBCON, DBUSER,DBPASS);
         }
         
-        public function create($name,$color, $description, $tags) {
+        public function create($name,$color, $description, $tags, $author, $filename) {
+            
+            
             $db = $this -> pdo;
-            $prepare = $db -> prepare('INSERT INTO books set name=?, color=?, description=?, tags=?');
-            $values = array($name, $color, $description);
+            $prepare = $db -> prepare('INSERT INTO books set name=?, color=?, description=?, tags=?, author=?, pdf_path=?');
+            $values = array($name, $color, $description, $tags,$author,$filename);
             $return = $prepare -> execute($values);
 
+            
+
             return $return;
+        }
+
+        public function generatePDF($file) {
+            $tmp_name = $file['tmp_name'];
+            $fileNameArray = explode(".",$file['name']);
+            $originalName = $fileNameArray[0];
+            $ext = $fileNameArray[1];
+            if($ext !== 'pdf') {
+                return false;
+            }
+            if(isset($tmp_name) && !empty($tmp_name)) {
+                
+                $rand1 = md5(rand(0,200000));
+                $rand2 = md5(rand(0,200000));
+                $pdf_path = './uploads/'.$originalName.$rand1.$rand2.'.'.$ext;
+                $pdf_name = $originalName.$rand1.$rand2.'.'.$ext;
+                move_uploaded_file($tmp_name, $pdf_path );
+                return $pdf_name;
+            }
+            else {
+                echo $tmp_name;
+                echo "Nao tem";
+            }
         }
 
         public function delete($id) {

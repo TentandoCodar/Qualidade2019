@@ -17,10 +17,12 @@
         $User = new User();
 
         $User -> signUp($email, $pass, $name, $phone, $user);
+        echo "Deu boa";
         header('Location: login.php');
     }
 
     else {
+        echo "Deu ruim";
         header('Location: signUp.php');
     }
 
