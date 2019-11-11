@@ -152,7 +152,7 @@
                       </div>
                       <div class="custom-card-text-frame">
                         <div class="custom-card-title">'.$value['name'].'</div>
-                        <div class="custom-card-paragraph"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </div>
+                        <div class="custom-card-paragraph">Baixado:'.$value['download_amount'].' vezes </div>
                         <div class="custom-card-opt-title">   <a target="_blank" href="Download.php?book='.$value['pdf_path'].'&id='.$value['id'].'" tabindex="-1">Baixar</a> </div>
                       </div>
                     </li>';

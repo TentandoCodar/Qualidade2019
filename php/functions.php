@@ -75,13 +75,14 @@ function _header(){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
 
-							<li class="nav-item">
-								<a class="nav-link" href="index.php">Home</a>
-							</li>
+					<li class="nav-item">
+						<a class="nav-link" href="index.php">Home</a>
+					</li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="artigos.php">Artigos</a>
-                </li>
+					<li class="nav-item">
+						<a class="nav-link" href="artigos.php">Artigos</a>
+					</li>
+					
 
 
 
@@ -135,6 +136,9 @@ function _header(){
 							<li class="nav-item">
 								<a class="nav-link" href="novoLivro.php">Novo Livro</a>
 							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="SeusLivros.php">Seus Livros</a>
+							</li>
 
 
 
@@ -178,6 +182,9 @@ function _header(){
 
 								<li class="nav-item">
 									<a class="nav-link" href="perfil.php">Perfil</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="SeusLivros.php">Seus Livros</a>
 								</li>
 
 

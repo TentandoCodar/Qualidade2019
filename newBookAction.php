@@ -19,7 +19,9 @@
         $color = $_POST['color'];
         $pdf_path = $books -> generatePDF($file);
         
-
+        if($pdf_path == false) {
+            header('Location: acervo.php');
+        }
 
         $return = $books -> create($name,$color, $description, $tags, $author, $pdf_path);
         header('Location: acervo.php');

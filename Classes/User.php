@@ -149,15 +149,18 @@
             return $return;
         }
 
-        public function hasMany($table = "") {
+        public function hasMany($id) {
             $db = $this -> pdo;
 
-            $prepare = $db -> prepare("SELECT * from users inner join ? on ?.user_id = users.id where users.id = ?");
-            $values = array($table,$table);
+            $prepare = $db -> prepare("SELECT * from users inner join books_per_users as 
+            SecondTable on SecondTable.user_id = users.id inner join books on
+            books.id = SecondTable.book_id;
+               where users.id = ?");
+            $values = array($id);
             $prepare -> execute($values);
 
             if($prepare -> rowCount() > 0) {
-                $return = $prepare -> fetchAll();
+                $return = array('data' => $prepare -> fetchAll(), 'rowCount' => $prepare -> rowCount());
                 return $return;
             }
 

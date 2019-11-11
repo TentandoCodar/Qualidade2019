@@ -25,7 +25,7 @@
             $fileNameArray = explode(".",$file['name']);
             $originalName = $fileNameArray[0];
             $ext = $fileNameArray[1];
-            if($ext !== 'pdf') {
+            if($ext != "pdf") {
                 return false;
             }
             if(isset($tmp_name) && !empty($tmp_name)) {
@@ -94,6 +94,12 @@
         public function download($id, $user_id) {
             $db = $this -> pdo;
 
+            $prepare = $db -> prepare("SELECT * FROM books_per_users where user_id=? and book_id = ?");
+            $prepare -> execute(array($user_id, $id));
+
+            if($prepare -> rowCount() > 0) {
+                return true;
+            }
             $prepare = $db -> prepare('UPDATE books set download_amount = download_amount + 1 where id=?');
             $prepare -> execute(array($id));
 
